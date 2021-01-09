@@ -83,6 +83,49 @@
 			</article>
 		</section>
 
+		<div>
+			{% assign grouped = site.docs | group_by: 'category' %}
+			{% assign prev_url = ''%}
+			{% assign prev_order = ''%}
+			{% assign prev_title = ''%}
+			{% assign next_url = ''%}
+			{% assign next_order = ''%}
+			{% assign next_title = ''%}
+			{% for group in grouped %}
+				
+				{% assign sections = group.items | sort: 'order' %}
+				
+				{% for section in sections %}
+					{% if section.url == page.url %}
+						{% assign next_url = 'x'%}
+					{% elsif next_url == 'x'%}
+						{% if group.name == page.category %}
+							{% assign next_url = section.url %}
+							{% assign next_order = section.order %}  
+							{% assign next_title = section.title %}
+						{% endif %}
+					{% elsif next_url == '' %}
+						{% if group.name == page.category %}
+							{% assign prev_url = section.url %}
+							{% assign prev_order = section.order %}  
+							{% assign prev_title = section.title %}
+						{% endif %}
+					{% endif%}
+				{% endfor %}				
+			{% endfor %}
+
+			{% if prev_title != ''%}
+			<div style="float: left;">
+				Previous: <a href='{{ site.baseurl }}{{ prev_url }}'> {{ prev_order }}  {{ prev_title }} </a>
+			</div>
+			{% endif %}
+			{% if next_title != ''%}
+			<div style="float: right;">
+				Next: <a href='{{ site.baseurl }}{{ next_url }}'> {{ next_order }}  {{ next_title }} </a>
+			</div>
+			{% endif %}
+		</div>
+
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
 				document.body.classList.toggle("nav-open");
