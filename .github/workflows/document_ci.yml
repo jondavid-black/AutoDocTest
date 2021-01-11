@@ -25,7 +25,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 svglib m2r rst2pdf Pillow pyenchant
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Check for spelling errors in _posts (update src/dict.txt if needed)
+    - name: Check for spelling errors in _docs (update src/dict.txt if needed)
       run: |
         python ./src/spellchecker.py ./_docs/*/*.md    
     - name: Lint with flake8
@@ -34,10 +34,10 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Generate combined cook book restructuredtext
+    - name: Generate combined documents in markdown and restructuredtext
       run: |
         python ./src/assembledocuments.py ./_docs ./build
-    - name: Generage cook book PDF 
+    - name: Generage PDF for each document 
       run: |
         for f in ./build/*.rst; do
            rst2pdf $f
