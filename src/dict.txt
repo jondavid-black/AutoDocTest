@@ -1,1 +1,11 @@
 DevOps
+AutoDoc
+RTM
+FRD
+deliverables
+LANs
+DBA
+schemas
+GUIs
+impedances
+ICD
