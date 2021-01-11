@@ -1,8 +1,8 @@
 # ----
 # Site
 
-title: DevOps for Defense
-url: "https://long-pig.cloudvent.net"
+title: DevOps for Docs
+url: "https://devopsfordefense.org"
 baseurl:
 google_analytics_key:
 show_full_navigation: true
