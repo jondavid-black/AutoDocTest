@@ -45,9 +45,9 @@ jobs:
         done
     - name: Zip documents
       uses: papeloto/action-zip@v1
-        with:
-          files: ./build/*.* 
-          dest: ./build/documents.zip
+      with:
+        files: ./build/*.* 
+        dest: ./build/documents.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
