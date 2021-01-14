@@ -21,7 +21,7 @@ jobs:
         sudo gem install wkhtmltopdf-binary
     - name: Run the pdf generation script
       run: |
-        ruby ./src/generatepdf.rb
+        sudo ruby ./src/generatepdf.rb
     - name: Show generated file listing
       run: |
         ls -al 
