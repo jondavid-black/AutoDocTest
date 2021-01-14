@@ -16,6 +16,7 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
+        sudo gem install kramdown
         sudo gem install pdfkit
         sudo gem install wkhtmltopdf-binary
     - name: Run the pdf generation script
