@@ -22,3 +22,6 @@ jobs:
     - name: Run the pdf generation script
       run: |
         ruby ./src/generatepdf.rb
+    - name: Show generated file listing
+      run: |
+        ls -al ./build
