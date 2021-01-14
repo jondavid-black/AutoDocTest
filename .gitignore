@@ -4,3 +4,5 @@ _site/
 build
 .vscode
 src/__pycache__
+doc_body.html
+document.pdf
