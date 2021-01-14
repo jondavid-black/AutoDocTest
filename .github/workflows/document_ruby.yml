@@ -24,4 +24,4 @@ jobs:
         ruby ./src/generatepdf.rb
     - name: Show generated file listing
       run: |
-        ls -al ./build
+        ls -al 
