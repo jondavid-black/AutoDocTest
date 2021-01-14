@@ -103,7 +103,9 @@ end
         File.write("doc_body.html", doc.to_html)
 
         
-        outfile = out[0].gsub(" ", "_")
+        outfile = out[0].gsub(" ", "_") + ".pdf"
+
+        puts "output file: " + outfile
 
         system("wkhtmltopdf " +  
             "cover title.html " + 
@@ -115,7 +117,7 @@ end
             "--header-center #{markings} " + 
             "--footer-center #{markings} " + 
             "--footer-right [page] " + 
-            "./build/#{outfile}.pdf")
+            "./#{outfile}")
 
             File.delete("doc_body.html")
             File.delete("title.html")
